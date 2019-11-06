@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    honk (0.0.1)
+    honkhonk (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -13,7 +13,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  honk!
+  honkhonk!
   rake (~> 13.0)
 
 BUNDLED WITH
