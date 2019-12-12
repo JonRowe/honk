@@ -4,6 +4,12 @@ module Honk
   module_function
 
   def call
-    `afplay #{HONK}`
+    if system('which afplay', out: '/dev/null', err: '/dev/null')
+      `afplay #{HONK}`
+    elsif system('which mplayer', out: '/dev/null', err: '/dev/null')
+      `mplayer #{HONK}`
+    else
+      raise "No `afplay` or `mplayer` executable"
+    end
   end
 end
