@@ -4,6 +4,16 @@ module Honk
   module_function
 
   def call
-    `afplay #{HONK}`
+    if run_quietly('which afplay')
+      run_quietly("afplay #{HONK}")
+    elsif run_quietly('which mplayer')
+      run_quietly("mplayer #{HONK}")
+    else
+      raise "No `afplay` or `mplayer` executable"
+    end
+  end
+
+  def run_quietly(command)
+    system(command, out: '/dev/null', err: '/dev/null')
   end
 end
